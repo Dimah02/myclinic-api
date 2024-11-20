@@ -21,12 +21,11 @@ app.use(bodyParser.json());
 app.use("/user", signupRoute);
 app.use("/user", loginRoute);
 app.use("/api", userRoute);
+app.get("./",(req,res)=>{
+    res.send("Working");
+})
 
 
  app.listen(3000, () => {
         console.log('Server is running on port 3000');
     });
-app.post("/api/products", (req, res) => {
-    console.log(req.body);
-    res.send("Data received");
-});
