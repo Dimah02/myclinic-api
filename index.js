@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use("/user", signupRoute);
 app.use("/user", loginRoute);
 app.use("/api", userRoute);
-app.get("./",(req,res)=>{
+app.get("/",(req,res)=>{
     res.send("Working");
 })
 
