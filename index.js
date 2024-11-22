@@ -4,6 +4,8 @@ const connectDB = require('./config/db')
 const signupRoute = require("./routes/signup");
 const loginRoute = require("./routes/login");
 const userRoute = require("./routes/user");
+const findUserRoute = require("./routes/find_user");
+
 
 const bodyParser = require('body-parser');
 const cors = require("cors")
@@ -18,6 +20,7 @@ connectDB();
 app.use(express.json());
 app.use(bodyParser.json());
 
+app.use("/user", findUserRoute);
 app.use("/user", signupRoute);
 app.use("/user", loginRoute);
 app.use("/api", userRoute);
