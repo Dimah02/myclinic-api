@@ -16,15 +16,12 @@ const userSchema = mongoose.Schema(
     },
     blood_type:{
         type: String,
-        required: true
     },
     gender:{
         type: String,
-        required: true
     },
     birth_date:{
         type: String,
-        required: true
     },
     allergy_to_medications:{
         type: String,
