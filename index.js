@@ -5,6 +5,9 @@ const signupRoute = require("./routes/signup");
 const loginRoute = require("./routes/login");
 const userRoute = require("./routes/user");
 const findUserRoute = require("./routes/find_user");
+const updateInfoRoute = require("./routes/update_user");
+
+const {authenticateToken} = require("./utils/authMiddleware");
 
 
 const bodyParser = require('body-parser');
@@ -24,6 +27,7 @@ app.use("/user", findUserRoute);
 app.use("/user", signupRoute);
 app.use("/user", loginRoute);
 app.use("/api", userRoute);
+app.use("/user",authenticateToken,updateInfoRoute);
 app.get("/",(req,res)=>{
     res.send("Working");
 })
