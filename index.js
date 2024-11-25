@@ -1,13 +1,14 @@
 const express = require('express');
 const dotenv = require('dotenv').config()
 const connectDB = require('./config/db')
-const signupRoute = require("./routes/signup");
-const loginRoute = require("./routes/login");
 const userRoute = require("./routes/user");
-const findUserRoute = require("./routes/find_user");
-const updateInfoRoute = require("./routes/update_user");
+const getClinicsRoute = require("./routes/get_clinics");
+const getDoctorRoute = require("./routes/get_doctor");
+const appointmentRoute = require("./routes/appointment");
+const reviewRoute = require("./routes/review");
 
-const {authenticateToken} = require("./utils/authMiddleware");
+
+
 
 
 const bodyParser = require('body-parser');
@@ -23,11 +24,14 @@ connectDB();
 app.use(express.json());
 app.use(bodyParser.json());
 
-app.use("/user", findUserRoute);
-app.use("/user", signupRoute);
-app.use("/user", loginRoute);
-app.use("/api", userRoute);
-app.use("/user",authenticateToken,updateInfoRoute);
+app.use("/user", userRoute);
+app.use("",getClinicsRoute);
+app.use("",getDoctorRoute);
+app.use("",appointmentRoute);
+app.use("",reviewRoute);
+
+
+
 app.get("/",(req,res)=>{
     res.send("Working");
 })
