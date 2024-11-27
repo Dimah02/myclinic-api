@@ -35,7 +35,7 @@ async function cancelAppointment(req, res) {
         // Update the doctor's available slots
         const doctor = appointment.doctor;
         doctor.appointments = doctor.appointments.map((appt) => {
-            if (appt.date === appointment.date) {
+            if (appt.date.toString() === appointment.date.toString()) {
                 appt.time = appt.time.map((slot) => {
                     if (slot.start === appointment.time) slot.available = true;
                     return slot;
