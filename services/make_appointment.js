@@ -24,7 +24,7 @@ async function makeAppointment(doctorId, userId, jdate, time) {
         doctor.appointments = doctor.appointments.map((appt) => {
             console.log("app: ",appt.date.toString());
             console.log("date:",date.toString());
-            if (appt.date.toString() === date.toString()) {
+            if (appt.date.getDate === date.getDate) {
                 console.log("ok");
                 appt.time = appt.time.map((slot) => {
                     if (slot.start === time) {
