@@ -4,8 +4,11 @@ const Doctor = require('../models/doctorModel');
 
 
 
-async function makeAppointment(doctorId, userId, date, time) {
+async function makeAppointment(doctorId, userId, jdate, time) {
     try {
+        const date = new Date(jdate);
+        date.setDate(date.getDate() + 1)
+
         const doctor = await Doctor.findById(doctorId);
         if (!doctor)  throw new Error('Doctor not found');
 
@@ -18,9 +21,11 @@ async function makeAppointment(doctorId, userId, date, time) {
             throw new Error('Time slot is not available');
         }
         doctor.appointments = doctor.appointments.map((appt) => {
-            if (appt.date === date) {
+            if (appt.date.toString() === date.toString()) {
                 appt.time = appt.time.map((slot) => {
-                    if (slot.start === time) slot.available = false;
+                    if (slot.start === time) {
+                        slot.available = false;
+                    }
                     return slot;
                 });
             }
