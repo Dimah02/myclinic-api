@@ -7,7 +7,8 @@ const Doctor = require('../models/doctorModel');
 async function makeAppointment(doctorId, userId, jdate, time) {
     try {
         const date = new Date(jdate);
-        date.setDate(date.getDate() + 1)
+        // date.setDate(date.getDate() + 1)
+        console.log(date);
 
         const doctor = await Doctor.findById(doctorId);
         if (!doctor)  throw new Error('Doctor not found');
