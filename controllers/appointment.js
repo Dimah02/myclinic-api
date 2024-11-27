@@ -26,6 +26,21 @@ async function getAppointment(req,res){
         res.status(500).json({ error: error.message });
     }
 }
+
+async function getAllAppointment(req,res){
+    const { id } = req.params;
+
+    try {
+        const appointments = await Appointment.find({ user: id })
+            .populate('doctor', 'name specialization')
+            .lean();
+
+        res.json({ appointments });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}
+
 async function cancelAppointment(req, res) {
     try {
         const { id } = req.params;
@@ -59,5 +74,6 @@ async function cancelAppointment(req, res) {
 module.exports = {
     createAppointment,
     cancelAppointment,
-    getAppointment
+    getAppointment,
+    getAllAppointment
 }
