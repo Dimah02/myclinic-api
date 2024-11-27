@@ -18,7 +18,6 @@ const AppointmentSchema = new mongoose.Schema({
     time: {
         type: String,
         required: true,
-        match: /^([01]\d|2[0-3]):([0-5]\d)$/,
     },
     status: {
         type: String,

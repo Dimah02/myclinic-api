@@ -34,9 +34,17 @@ const connectDB = async () => {
 
 
     const clinics = [
-      { name: 'Clinic A' },
-      { name: 'Clinic B' },
-      { name: 'Clinic C' },
+      { name: 'Internal Medicine Clinic',image:"none" },
+      { name: 'Ear, Nose, and Throat (ENT) Clinic',image:"none" },
+      { name: 'Dental Clinic',image:"none" },
+      { name: 'Ophthalmology Clinic or Optometry Clinic' ,image:"none"},
+      { name: 'Psychology Clinic or Counseling Center',image:"none" },
+      { name: 'Dermatology Clinic',image:"none" },
+      { name: 'Occupational Therapy Clinic',image:"none" },
+      { name: 'Dietitian Clinic',image:"none" },
+      { name: 'Orthopedic Clinic' ,image:"none"},
+      { name: 'Speech-Language Pathology Clinic' ,image:"none"},
+      { name: 'Gynecology Clinic' ,image:"none"},
     ];
     const doctors = [
       {
@@ -129,6 +137,15 @@ const connectDB = async () => {
         averageRating: 0,
         appointments: generateFakeAppointments(),
       },
+      {
+        name: 'Dr. Dimah Mehdawi',
+        specialization: 'Endocrinology',
+        about: 'Expert in hormonal and metabolic disorders.',
+        photo: 'photo10.jpg',
+        reviews: [],
+        averageRating: 0,
+        appointments: generateFakeAppointments(),
+      },
     ];
     // Doctor.insertMany(doctors);
     // Clinic.insertMany(clinics);
@@ -136,7 +153,7 @@ const connectDB = async () => {
     //   .then(([insertedDoctors, insertedClinics]) => {
     //     const clinicUpdatePromises = insertedClinics.map(async (clinic) => {
     //       const doctorIds = [];
-    //       for (let i = 0; i < 3; i++) { // Assign 3 doctors per clinic
+    //       for (let i = 0; i < 1; i++) { // Assign 3 doctors per clinic
     //         const randomIndex = Math.floor(Math.random() * insertedDoctors.length);
     //         doctorIds.push(insertedDoctors[randomIndex]._id);
     //         insertedDoctors.splice(randomIndex, 1); // Remove the used doctor from the list for future assignments
