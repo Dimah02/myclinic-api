@@ -6,6 +6,7 @@ mongoose.set("strictQuery", false)
 const generateFakeAppointments = () => {
   const appointments = [];
   const startDate = new Date();
+  startDate.setHours(0, 0, 0, 0);
   for (let i = 0; i < 7; i++) { // Generate for the next 7 days
     const day = new Date(startDate);
     day.setDate(startDate.getDate() + i);
