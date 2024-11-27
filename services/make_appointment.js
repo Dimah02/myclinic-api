@@ -8,7 +8,6 @@ async function makeAppointment(doctorId, userId, jdate, time) {
     try {
         const date = new Date(jdate);
         // date.setDate(date.getDate() + 1)
-        console.log(date);
 
         const doctor = await Doctor.findById(doctorId);
         if (!doctor)  throw new Error('Doctor not found');
@@ -22,13 +21,9 @@ async function makeAppointment(doctorId, userId, jdate, time) {
             throw new Error('Time slot is not available');
         }
         doctor.appointments = doctor.appointments.map((appt) => {
-            console.log("app: ",appt.date.toString());
-            console.log("date:",date.toString());
             if (appt.date.getDate === date.getDate) {
-                console.log("ok");
                 appt.time = appt.time.map((slot) => {
                     if (slot.start === time) {
-                        console.log("Found");
                         slot.available = false;
                     }
                     return slot;
