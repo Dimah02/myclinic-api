@@ -18,7 +18,7 @@ async function getAppointment(req,res){
 
     try {
         const appointments = await Appointment.find({ user: id, status: 'Booked' })
-            .populate('doctor', 'name specialization')
+            .populate('doctor', 'name specialization photo')
             .lean();
 
         res.json({ appointments });
@@ -32,7 +32,7 @@ async function getAllAppointment(req,res){
 
     try {
         const appointments = await Appointment.find({ user: id })
-            .populate('doctor', 'name specialization')
+            .populate('doctor', 'name specialization photo')
             .lean();
 
         res.json({ appointments });
