@@ -5,6 +5,11 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    photo:{
+      type: String,
+      required: true,
+      default: 'https://cdn-icons-png.flaticon.com/128/847/847969.png'
+    },
     email: {
       type: String,
       unique: true,
