@@ -21,7 +21,8 @@ async function makeAppointment(doctorId, userId, jdate, time) {
             throw new Error('Time slot is not available');
         }
         doctor.appointments = doctor.appointments.map((appt) => {
-            if (appt.date.getDate === date.getDate) {
+            
+            if (appt.date.getDate() === date.getDate() && appt.date.getMonth() === date.getMonth()) {
                 appt.time = appt.time.map((slot) => {
                     if (slot.start === time) {
                         slot.available = false;
