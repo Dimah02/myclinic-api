@@ -1,6 +1,6 @@
 # myclinic
 
-> Simple Clinic App Api, that have the most of the basics clinic operations, made by express and mongo db, to serve [this app](https://github.com/Dimah02/myclinic-app).
+> Simple Clinic App Api, that have the most of the basics clinic operations, made by Express and Mongodb, to serve [this app](https://github.com/Dimah02/myclinic-app).
 <br>
 
 if you want to use it, after cloning run:
