@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Doctor = require('../models/doctorModel');
 const Clinic = require('../models/clinicModel');
-mongoose.set("strictQuery", false)
+mongoose.set("strictQuery", false);
 
 const generateFakeAppointments = () => {
   const appointments = [];
