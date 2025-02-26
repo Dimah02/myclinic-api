@@ -28,4 +28,11 @@ const AppointmentSchema = new mongoose.Schema({
 
 AppointmentSchema.index({ doctor: 1, date: 1 });
 
+AppointmentSchema.pre('save', function (next) {
+    if (this.date < Date.now()) {
+       this.status = 'Completed';
+    }
+    next();
+});
+
 module.exports = mongoose.model('Appointment', AppointmentSchema);
